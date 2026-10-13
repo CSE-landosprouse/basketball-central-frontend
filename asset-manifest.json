@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/basketball-central-frontend/static/css/main.33aca2f4.css",
+    "main.js": "/basketball-central-frontend/static/js/main.6e5b40c6.js",
+    "index.html": "/basketball-central-frontend/index.html",
+    "main.33aca2f4.css.map": "/basketball-central-frontend/static/css/main.33aca2f4.css.map",
+    "main.6e5b40c6.js.map": "/basketball-central-frontend/static/js/main.6e5b40c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33aca2f4.css",
+    "static/js/main.6e5b40c6.js"
+  ]
+}

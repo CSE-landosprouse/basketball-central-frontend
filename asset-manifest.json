@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/basketball-central-frontend/static/css/main.8954e737.css",
-    "main.js": "/basketball-central-frontend/static/js/main.569e76f3.js",
+    "main.css": "/basketball-central-frontend/static/css/main.9002d54d.css",
+    "main.js": "/basketball-central-frontend/static/js/main.598fcc40.js",
+    "static/media/news-feature.jpg": "/basketball-central-frontend/static/media/news-feature.19d9c812e2d7b4e669a0.jpg",
+    "static/media/hero2.jpg": "/basketball-central-frontend/static/media/hero2.304ba8d1ba3d646fb85c.jpg",
+    "static/media/featured-story2.jpg": "/basketball-central-frontend/static/media/featured-story2.25d26bab659ea102be52.jpg",
     "index.html": "/basketball-central-frontend/index.html",
-    "main.8954e737.css.map": "/basketball-central-frontend/static/css/main.8954e737.css.map",
-    "main.569e76f3.js.map": "/basketball-central-frontend/static/js/main.569e76f3.js.map"
+    "main.9002d54d.css.map": "/basketball-central-frontend/static/css/main.9002d54d.css.map",
+    "main.598fcc40.js.map": "/basketball-central-frontend/static/js/main.598fcc40.js.map"
   },
   "entrypoints": [
-    "static/css/main.8954e737.css",
-    "static/js/main.569e76f3.js"
+    "static/css/main.9002d54d.css",
+    "static/js/main.598fcc40.js"
   ]
 }

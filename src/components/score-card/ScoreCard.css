@@ -1,0 +1,32 @@
+.score-card {
+    min-height: 155px;
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+.score-card div {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.score-card p,
+.score-card strong {
+    margin: 0;
+}
+
+.score-card strong {
+    color: #101a9b;
+    font-size: 1.2rem;
+}
+
+.score-card span {
+    margin-top: 14px;
+    color: #ff6b16;
+    font-size: 0.9rem;
+    font-weight: 800;
+}

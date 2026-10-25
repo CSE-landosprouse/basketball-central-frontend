@@ -1,0 +1,19 @@
+.site-footer {
+    padding: 45px 5% 25px;
+    background-color: #828282;
+    color: #ffffff;
+}
+
+.site-footer h2 {
+    margin: 0 0 6px;
+    font-size: 2rem;
+}
+
+.site-footer p {
+    margin: 0 0 25px;
+}
+
+.site-footer .copyright {
+    margin: 0;
+    font-weight: 700;
+}

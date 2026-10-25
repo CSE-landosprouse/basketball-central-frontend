@@ -1,0 +1,47 @@
+.players-banner {
+    padding: 80px 5%;
+    background-color: #0f172a;
+    color: #ffffff;
+    text-align: center;
+}
+
+.players-banner p {
+    margin: 0 0 18px;
+    color: #ff6b16;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.players-banner h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.6rem, 5vw, 4.5rem);
+}
+
+.players-banner span {
+    font-size: 1.2rem;
+}
+
+.players-page-section {
+    padding: 65px 5%;
+    background-color: #d9d9d9;
+}
+
+.players-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+@media (max-width: 850px) {
+    .players-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .players-grid {
+        grid-template-columns: 1fr;
+    }
+}

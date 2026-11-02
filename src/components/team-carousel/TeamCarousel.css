@@ -1,0 +1,65 @@
+.team-carousel-section {
+    padding: 65px 8%;
+    background: #ffffff;
+}
+
+.team-carousel-section > p {
+    margin: 0 0 16px;
+    color: #ff6b16;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.team-carousel-section > h2 {
+    margin: 0 0 30px;
+    color: #101a9b;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.team-swiper {
+    padding: 8px 48px 52px;
+}
+
+.carousel-team-card {
+    min-height: 270px;
+    padding: 28px 18px;
+    background: #eef2f7;
+    text-align: center;
+}
+
+.carousel-team-card img {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+}
+
+.carousel-team-card h3 {
+    margin: 18px 0 8px;
+    color: #101a9b;
+    font-size: 1.35rem;
+}
+
+.carousel-team-card span {
+    color: #17213d;
+}
+
+.team-swiper .swiper-button-next,
+.team-swiper .swiper-button-prev {
+    color: #101a9b;
+}
+
+.team-swiper .swiper-pagination-bullet-active {
+    background: #ff6b16;
+}
+
+@media (max-width: 550px) {
+    .team-carousel-section {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .team-swiper {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+}

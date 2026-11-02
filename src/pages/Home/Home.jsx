@@ -1,14 +1,17 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
 import heroImage from "../../images/hero2.jpg";
-import featuredStoryImage from "../../images/featured-story2.jpg";
+import StorySlideshow from "../../components/story-slideshow/StorySlideshow";
+import ArenaMap from "../../components/arena-map/ArenaMap";
 
 function Home() {
     return (
         <main>
             <section
                 className="home-hero"
-                style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.62)), url(${heroImage})` }}
+                style={{
+                    backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.62)), url(${heroImage})`
+                }}
             >
                 <div className="home-hero-content">
                     <p className="home-eyebrow">FULL COURT NBA COVERAGE</p>
@@ -40,22 +43,8 @@ function Home() {
                 </div>
             </section>
 
-            <section
-                className="home-featured-story"
-                style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.62)), url(${featuredStoryImage})` }}
-            >
-                <div>
-                    <p className="home-eyebrow">FEATURED STORY</p>
-                    <h2>The Race for the Playoffs Is Heating Up</h2>
-                    <p>
-                        Teams across both conferences are battling for postseason
-                        positioning as the NBA season reaches its biggest moments.
-                    </p>
-                    <Link className="home-button" to="/news">
-                        Read NBA News
-                    </Link>
-                </div>
-            </section>
+            <StorySlideshow />
+            <ArenaMap />
         </main>
     );
 }

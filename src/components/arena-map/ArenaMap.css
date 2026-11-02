@@ -1,0 +1,45 @@
+.arena-map-section {
+    padding: 70px 5%;
+    background: #eef2f7;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.arena-map-text p {
+    margin: 0 0 18px;
+    color: #ff6b16;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.arena-map-text h2 {
+    margin: 0 0 18px;
+    color: #101a9b;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.arena-map-text span {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.arena-map-frame {
+    min-height: 360px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+.arena-map-frame iframe {
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+@media (max-width: 750px) {
+    .arena-map-section {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}

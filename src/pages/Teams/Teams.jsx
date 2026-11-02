@@ -1,5 +1,6 @@
 import "./Teams.css";
 import TeamCard from "../../components/team-card/TeamCard";
+import TeamCarousel from "../../components/team-carousel/TeamCarousel";
 
 const easternTeams = [
     {
@@ -55,6 +56,8 @@ function Teams() {
                 <h1>League Contenders</h1>
                 <span>Explore exciting teams from both NBA conferences.</span>
             </section>
+
+            <TeamCarousel />
 
             <section className="teams-section">
                 <h2>Eastern Conference</h2>

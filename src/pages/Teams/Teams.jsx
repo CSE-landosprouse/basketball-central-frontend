@@ -1,54 +1,43 @@
+import { useEffect, useState } from "react";
 import "./Teams.css";
 import TeamCard from "../../components/team-card/TeamCard";
-import TeamCarousel from "../../components/team-carousel/TeamCarousel";
-
-const easternTeams = [
-    {
-        name: "Boston Celtics",
-        city: "Boston, Massachusetts",
-        logo: "https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg"
-    },
-    {
-        name: "New York Knicks",
-        city: "New York, New York",
-        logo: "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg"
-    },
-    {
-        name: "Cleveland Cavaliers",
-        city: "Cleveland, Ohio",
-        logo: "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg"
-    },
-    {
-        name: "Milwaukee Bucks",
-        city: "Milwaukee, Wisconsin",
-        logo: "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg"
-    }
-];
-
-const westernTeams = [
-    {
-        name: "Oklahoma City Thunder",
-        city: "Oklahoma City, Oklahoma",
-        logo: "https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg"
-    },
-    {
-        name: "Denver Nuggets",
-        city: "Denver, Colorado",
-        logo: "https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg"
-    },
-    {
-        name: "Los Angeles Lakers",
-        city: "Los Angeles, California",
-        logo: "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg"
-    },
-    {
-        name: "Golden State Warriors",
-        city: "San Francisco, California",
-        logo: "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg"
-    }
-];
 
 function Teams() {
+    const [teams, setTeams] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        async function getTeams() {
+            try {
+                const response = await fetch(
+                    "https://basketball-central-backend.onrender.com/api/teams"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Could not load NBA teams.");
+                }
+
+                const data = await response.json();
+                setTeams(data);
+            } catch (error) {
+                setError("Unable to load teams right now. Please try again soon.");
+            } finally {
+                setIsLoading(false);
+            }
+        }
+
+        getTeams();
+    }, []);
+
+    const easternTeams = teams.filter(
+        (team) => team.conference === "Eastern Conference"
+    );
+
+    const westernTeams = teams.filter(
+        (team) => team.conference === "Western Conference"
+    );
+
     return (
         <main>
             <section className="teams-banner">
@@ -57,27 +46,37 @@ function Teams() {
                 <span>Explore exciting teams from both NBA conferences.</span>
             </section>
 
-            <TeamCarousel />
+            {isLoading && (
+                <p className="teams-message">Loading NBA teams...</p>
+            )}
 
-            <section className="teams-section">
-                <h2>Eastern Conference</h2>
+            {error && (
+                <p className="teams-message teams-error">{error}</p>
+            )}
 
-                <div className="teams-grid">
-                    {easternTeams.map((team) => (
-                        <TeamCard key={team.name} {...team} />
-                    ))}
-                </div>
-            </section>
+            {!isLoading && !error && (
+                <>
+                    <section className="teams-section">
+                        <h2>Eastern Conference</h2>
 
-            <section className="teams-section teams-section-alt">
-                <h2>Western Conference</h2>
+                        <div className="teams-grid">
+                            {easternTeams.map((team) => (
+                                <TeamCard key={team._id} {...team} />
+                            ))}
+                        </div>
+                    </section>
 
-                <div className="teams-grid">
-                    {westernTeams.map((team) => (
-                        <TeamCard key={team.name} {...team} />
-                    ))}
-                </div>
-            </section>
+                    <section className="teams-section teams-section-alt">
+                        <h2>Western Conference</h2>
+
+                        <div className="teams-grid">
+                            {westernTeams.map((team) => (
+                                <TeamCard key={team._id} {...team} />
+                            ))}
+                        </div>
+                    </section>
+                </>
+            )}
         </main>
     );
 }

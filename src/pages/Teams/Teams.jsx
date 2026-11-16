@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import "./Teams.css";
 import TeamCard from "../../components/team-card/TeamCard";
+import TeamForm from "../../components/team-form/TeamForm";
+import TeamModal from "../../components/team-modal/TeamModal";
+
+const apiUrl = "https://basketball-central-backend.onrender.com/api/teams";
 
 function Teams() {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
+    const [selectedTeam, setSelectedTeam] = useState(null);
 
     useEffect(() => {
         async function getTeams() {
             try {
-                const response = await fetch(
-                    "https://basketball-central-backend.onrender.com/api/teams"
-                );
+                const response = await fetch(apiUrl);
 
                 if (!response.ok) {
                     throw new Error("Could not load NBA teams.");
@@ -29,6 +32,24 @@ function Teams() {
 
         getTeams();
     }, []);
+
+    async function addTeam(newTeamData) {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTeamData)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Unable to add this team.");
+        }
+
+        setTeams((currentTeams) => [...currentTeams, data.team]);
+    }
 
     const easternTeams = teams.filter(
         (team) => team.conference === "Eastern Conference"
@@ -61,7 +82,11 @@ function Teams() {
 
                         <div className="teams-grid">
                             {easternTeams.map((team) => (
-                                <TeamCard key={team._id} {...team} />
+                                <TeamCard
+                                    key={team._id}
+                                    {...team}
+                                    onSelect={() => setSelectedTeam(team)}
+                                />
                             ))}
                         </div>
                     </section>
@@ -71,12 +96,23 @@ function Teams() {
 
                         <div className="teams-grid">
                             {westernTeams.map((team) => (
-                                <TeamCard key={team._id} {...team} />
+                                <TeamCard
+                                    key={team._id}
+                                    {...team}
+                                    onSelect={() => setSelectedTeam(team)}
+                                />
                             ))}
                         </div>
                     </section>
+
+                    <TeamForm onAddTeam={addTeam} />
                 </>
             )}
+
+            <TeamModal
+                team={selectedTeam}
+                onClose={() => setSelectedTeam(null)}
+            />
         </main>
     );
 }

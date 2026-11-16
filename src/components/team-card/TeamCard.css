@@ -1,13 +1,21 @@
 .team-card {
+    width: 100%;
     padding: 28px 18px;
+    border: 0;
     background-color: #ffffff;
+    color: #17213d;
+    font: inherit;
     text-align: center;
+    cursor: pointer;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.team-card:hover {
+.team-card:hover,
+.team-card:focus-visible {
     transform: translateY(-6px);
+    outline: 3px solid #ff6b16;
+    outline-offset: 3px;
     box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
 }
 
@@ -44,4 +52,12 @@
 
 .team-details strong {
     color: #101a9b;
+}
+
+.team-card-link {
+    display: block;
+    margin-top: 18px;
+    color: #ff6b16;
+    font-size: 0.9rem;
+    font-weight: 800;
 }

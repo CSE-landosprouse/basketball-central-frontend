@@ -6,10 +6,16 @@ function TeamCard({
     conference,
     arena,
     championships,
-    logo
+    logo,
+    onSelect
 }) {
     return (
-        <article className="team-card">
+        <button
+            className="team-card"
+            type="button"
+            onClick={onSelect}
+            aria-label={`View details for ${name}`}
+        >
             <img src={logo} alt={`${name} logo`} />
 
             <h3>{name}</h3>
@@ -20,7 +26,9 @@ function TeamCard({
                 <p><strong>Championships:</strong> {championships}</p>
                 <p><strong>Conference:</strong> {conference}</p>
             </div>
-        </article>
+
+            <span className="team-card-link">View Team Details →</span>
+        </button>
     );
 }
 
